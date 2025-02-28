@@ -40,7 +40,7 @@ export function AppSidebarInset({ children }: { children: React.ReactNode }) {
                   Sidebar is only resizable on desktop
                 </BreadcrumbPage>
                 <BreadcrumbPage className="hidden md:block">
-                  Try to drag the sidebar
+                  Welcome to LibrePath
                 </BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>

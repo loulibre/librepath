@@ -69,17 +69,17 @@ const data = {
   },
   teams: [
     {
-      name: "Acme Inc",
+      name: "LibrePath Team",
       logo: GalleryVerticalEnd,
       plan: "Enterprise",
     },
     {
-      name: "Acme Corp.",
+      name: "LibrePath AI",
       logo: AudioWaveform,
       plan: "Startup",
     },
     {
-      name: "Evil Corp.",
+      name: "LibrePath Docs",
       logo: Command,
       plan: "Free",
     },
