@@ -1,8 +1,8 @@
 {
-  "name": "drag-to-resize-sidebar",
+  "name": "librepath",
   "version": "0.1.0",
   "private": true,
-  "license": "MIT",
+  "license": "AGPL-3.0-only",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -1,19 +1,18 @@
-# A shadcn/ui Resizeable Sidebar
-
-A extended shadcn-ui drag-to-resize `<Sidebar>` component for Next.js applications with persisted state drag-to-resize functionality.
-
-Demo: [shadcn-resize-sidebar.vercel.app](https://shadcn-resize-sidebar.vercel.app/)
+# LibrePath – A Privacy-First AI Productivity App for Desktop, Mobile, and Web with offline support
 
 ## Features
 
-- 🕶️ Extended everthing from shadcn-ui `<Sidebar>`
-- 🖱️ Drag to resize sidebar width
-- 🔄 Collapsible sidebar with smooth transitions
-- 🎨 Theme support (light/dark mode)
-- ⌨️ Keyboard shortcuts
-- 🍪 Persistent state with cookies
+## Dashboard App Features
+-  Responsive UI with sidebar
+-  Desktop, tab, mobile layouts
+-  AI Agent component for chat
+-  AI Browser-do component for task completion 
+-  Calendar, Graph components
+-  Theme support (light/dark mode)
+-  Keyboard shortcuts
+-  Persistent state with cookies
 
-## Demo Stack
+## Tech Stack
 
 - Next.js 14
 - TypeScript
@@ -26,8 +25,8 @@ Demo: [shadcn-resize-sidebar.vercel.app](https://shadcn-resize-sidebar.vercel.ap
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/lumpinif/drag-to-resize-sidebar.git
-cd drag-to-resize-sidebar
+git clone https://github.com/librepathai/librepath
+cd librepath
 ```
 
 2. Install dependencies:
@@ -50,4 +49,4 @@ Pull requests are welcome.
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[AGPL]
