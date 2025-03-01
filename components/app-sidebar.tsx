@@ -24,6 +24,10 @@ import {
   Sparkles,
   SquareTerminal,
   Trash2,
+  Archive,
+  LayoutDashboard,
+  Clock,
+  Star, // Add this import
 } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -63,8 +67,8 @@ import {
 // This is sample data.
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: "LouLibre",
+    email: "m@librepath.com",
     avatar: "/avatars/shadcn.jpg",
   },
   teams: [
@@ -86,24 +90,38 @@ const data = {
   ],
   navMain: [
     {
-      title: "Playground",
-      url: "#",
+      title: "Productivity",
+      url: "/productivity",
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
+          title: "Dashboard",
+          url: "/productivity/dashboard",
+          icon: LayoutDashboard,
+        },
+        {
           title: "History",
-          url: "#",
+          url: "/productivity/history", // Update URL
+          icon: Clock,
         },
         {
           title: "Starred",
-          url: "#",
+          url: "/productivity/starred", // Update URL
+          icon: Star,
         },
         {
           title: "Settings",
-          url: "#",
+          url: "/productivity/settings", // Update URL
+          icon: Settings2,
         },
       ],
+    },
+    {
+      title: "Archives",
+      url: "/archives",
+      icon: Archive,
+      items: [],
     },
     {
       title: "Models",
@@ -279,7 +297,8 @@ export function AppSidebar({ children }: { children: React.ReactNode }) {
                         {item.items?.map((subItem) => (
                           <SidebarMenuSubItem key={subItem.title}>
                             <SidebarMenuSubButton asChild>
-                              <a href={subItem.url}>
+                              <a href={subItem.url} className="flex items-center gap-2">
+                                {subItem.icon && <subItem.icon className="h-4 w-4" />} {/* Render the icon */}
                                 <span>{subItem.title}</span>
                               </a>
                             </SidebarMenuSubButton>
