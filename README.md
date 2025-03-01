@@ -2,6 +2,8 @@
 
 ## Features
 
+![LibrePath Dashboard](/screenshot-dashboard.jpg)
+
 ## Dashboard App Features
 -  Responsive UI with sidebar
 -  Desktop, tab, mobile layouts

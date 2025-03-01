@@ -1,3 +1,36 @@
+/**
+ * Topbar Component
+ * 
+ * This component renders the application's top navigation bar.
+ * It combines static elements with dynamic content managed through the topbar store.
+ * 
+ * State Management:
+ * - Uses Zustand-powered topbar store (@/store/use-topbar-store) for dynamic content
+ * - Store provides page title and action buttons that can be updated from any page
+ * - Each page component can set its own title and actions using useTopbarStore
+ * 
+ * Dependencies:
+ * - @/store/use-topbar-store: Manages dynamic title and action buttons
+ * - @/components/nav-actions: For the more options menu
+ * - shadcn/ui components: Button, Popover
+ * - lucide-react: For icons
+ * 
+ * Features:
+ * - Dynamic title from store (updated per-page)
+ * - Star button with toggle functionality
+ * - Dynamic action buttons from store (configurable per-page)
+ * - More options menu (three dots)
+ * 
+ * Example Store Usage in Pages:
+ * ```tsx
+ * const setTopbar = useTopbarStore((state) => state.setTopbar)
+ * useEffect(() => {
+ *   setTopbar("Page Title", [actions])
+ *   return () => setTopbar("", []) // Cleanup
+ * }, [])
+ * ```
+ */
+
 "use client"
 
 import * as React from "react"
@@ -14,17 +47,22 @@ export function Topbar() {
 
   return (
     <div className="flex h-14 w-full items-center justify-between border-b px-4">
+      {/* Left side: Page title */}
       <div className="flex items-center">
         <h1 className="text-xl font-medium">{title}</h1>
       </div>
 
+      {/* Right side: Actions and buttons */}
       <div className="flex items-center gap-2">
-        <div className="hidden font-medium text-muted-foreground md:inline-block">Edit Oct 08</div>
+        {/* Date - hidden on mobile */}
+        <div className="hidden font-medium text-muted-foreground md:inline-block">02-Feb-2025</div>
         
+        {/* Star button with toggle state */}
         <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => setIsStarred(!isStarred)}>
           <Star className={isStarred ? "fill-yellow-400 text-yellow-400" : ""} />
         </Button>
 
+        {/* Dynamic action buttons from store */}
         {actions?.map((action, index) => (
           <Button
             key={index}
@@ -37,6 +75,7 @@ export function Topbar() {
           </Button>
         ))}
 
+        {/* More options menu */}
         <Popover open={isMoreOpen} onOpenChange={setIsMoreOpen}>
           <PopoverTrigger asChild>
             <Button variant="ghost" size="icon" className="h-7 w-7 data-[state=open]:bg-accent">

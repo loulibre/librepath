@@ -18,15 +18,11 @@ export default function Calendar() {
       },
     ])
 
-    // Cleanup when component unmounts
-    return () => {
-      setTopbar("")
-    }
+    return () => setTopbar("", [])
   }, [setTopbar])
 
   return (
     <div className="flex flex-col gap-4 p-6">
-      <h1 className="text-2xl font-bold">Calendar</h1>
       <p className="text-muted-foreground">
         Welcome to the Calendar page.
       </p>

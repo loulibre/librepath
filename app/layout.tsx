@@ -1,7 +1,25 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
-import { Providers } from "@/components/providers";
+/**
+ * Root Layout Component
+ * 
+ * This is the main layout wrapper for the entire application.
+ * It includes the Topbar component which will be present on all pages.
+ * 
+ * Dependencies:
+ * - @/components/topbar: The Topbar component
+ * - @/components/providers: App providers wrapper
+ * - next/font/local: For custom fonts
+ * 
+ * Key Features:
+ * - Sets up the base HTML structure
+ * - Includes custom fonts (Geist)
+ * - Wraps the app in necessary providers
+ * - Positions the Topbar above all page content
+ */
+
+import type { Metadata } from "next"
+import localFont from "next/font/local"
+import "./globals.css"
+import { Providers } from "@/components/providers"
 import { Topbar } from "@/components/topbar"
 
 const geistSans = localFont({
@@ -27,9 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Providers>
           <div className="flex min-h-screen flex-col">
             <Topbar />
@@ -38,5 +54,5 @@ export default function RootLayout({
         </Providers>
       </body>
     </html>
-  );
+  )
 }

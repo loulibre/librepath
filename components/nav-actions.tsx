@@ -31,11 +31,39 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 
+/**
+ * NavActions Component
+ * 
+ * This component provides the menu items for the three-dot menu in the Topbar.
+ * It can be used either as a standalone component or as part of the Topbar's
+ * more options menu.
+ * 
+ * Dependencies:
+ * - shadcn/ui components: Button, Popover, Sidebar
+ * - lucide-react: For all menu icons
+ * 
+ * Usage:
+ * 1. As part of Topbar (standalone={false}):
+ *    - Renders just the menu items
+ *    - Used inside Topbar's PopoverContent
+ * 
+ * 2. As standalone (standalone={true}):
+ *    - Includes its own wrapper and trigger button
+ *    - Used for demo/testing purposes
+ * 
+ * Menu Structure:
+ * - Groups of related actions (customize, file operations, etc.)
+ * - Each action has an icon and label
+ * - Actions are separated into logical groups with borders
+ */
+
+// Data structure defining all menu items and their groups
 const data = [
   [
     {
       label: "Customize Page",
       icon: Settings2,
+      // Each group is an array of related actions
     },
     {
       label: "Turn into wiki",
@@ -95,7 +123,7 @@ const data = [
 ]
 
 interface NavActionsProps {
-  standalone?: boolean
+  standalone?: boolean  // Controls rendering mode
 }
 
 export function NavActions({ standalone = false }: NavActionsProps) {
