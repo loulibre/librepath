@@ -331,18 +331,19 @@ import {
                         </SidebarMenuButton>
                       </CollapsibleTrigger>
                       <CollapsibleContent>
-                        <SidebarMenuSub>
-                          {item.items?.map((subItem) => (
-                            <SidebarMenuSubItem key={subItem.title}>
-                              <SidebarMenuSubButton asChild>
-                                <a href={subItem.url} className="flex items-center gap-2">
-                                  { "icon" in subItem && subItem.icon ? <subItem.icon className="h-4 w-4" /> : null }
-                                  <span>{subItem.title}</span>
-                                </a>
-                              </SidebarMenuSubButton>
-                            </SidebarMenuSubItem>
-                          ))}
-                        </SidebarMenuSub>
+                      <SidebarMenuSub>
+  {item.items?.map((subItem) => (
+    <SidebarMenuSubItem key={subItem.title}>
+      <SidebarMenuSubButton asChild>
+        <a href={subItem.url} className="flex items-center gap-2">
+          { "icon" in subItem && subItem.icon ? React.createElement(subItem.icon, { className: "h-4 w-4" }) : null }
+          <span>{subItem.title}</span>
+        </a>
+      </SidebarMenuSubButton>
+    </SidebarMenuSubItem>
+  ))}
+</SidebarMenuSub>
+
                       </CollapsibleContent>
                     </SidebarMenuItem>
                   </Collapsible>
