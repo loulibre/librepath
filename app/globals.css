@@ -92,3 +92,10 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Fix for sidebar icon missing styles */
+.sidebar-icon {
+  width: 1rem; /* 16px */
+  height: 1rem; /* 16px */
+  display: inline-block;
+}
