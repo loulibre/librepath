@@ -68,6 +68,21 @@ import {
   } from "@/components/ui/sidebar";
 
   // This is sample data.
+  // Add these interfaces at the top of the file, after the imports
+  interface SubItem {
+    title: string;
+    url: string;
+    icon?: React.ElementType;
+  }
+
+  interface NavItem {
+    title: string;
+    url: string;
+    icon: React.ElementType;
+    isActive?: boolean;
+    items?: SubItem[];
+  }
+
   const data = {
     user: {
       name: "LouLibre",
@@ -336,7 +351,7 @@ import {
     <SidebarMenuSubItem key={subItem.title}>
       <SidebarMenuSubButton asChild>
         <a href={subItem.url} className="flex items-center gap-2">
-          { "icon" in subItem && subItem.icon ? React.createElement(subItem.icon, { className: "h-4 w-4" }) : null }
+          {subItem.icon && React.createElement(subItem.icon, { className: "h-4 w-4" })}
           <span>{subItem.title}</span>
         </a>
       </SidebarMenuSubButton>
