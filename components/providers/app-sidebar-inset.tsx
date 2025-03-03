@@ -33,10 +33,10 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
-  BreadcrumbPage,
+//  BreadcrumbPage,  //probably unused breadcrumb page.  delete if possible
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import Socials from "@/components/socials";
+// import Socials from "@/components/socials";   // unused social icon
 import { SidebarTrigger } from "../ui/sidebar";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 // Add LayoutDashboard to the imports

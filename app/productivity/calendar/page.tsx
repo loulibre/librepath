@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-import { Plus, Calendar as CalendarIcon } from "lucide-react"
+import { Plus } from "lucide-react" // Removed CalendarIcon since it's unused
 import { useTopbarStore } from "@/store/use-topbar-store"
 
 export default function Calendar() {
