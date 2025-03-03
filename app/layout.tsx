@@ -34,8 +34,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Drag-to-Resize Sidebar",
-  description: "Drag-to-Resize Sidebar built with shadcn-ui",
+  title: "LibrePath AI",
+  description: "Private AI Productivity Solutions",
 };
 
 export default function RootLayout({
