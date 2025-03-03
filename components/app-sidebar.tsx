@@ -31,6 +31,7 @@ import {
   FolderUp,
   FolderSync,
   Grid3x3,
+  User, // Add this for avatar fallback
   // Add these new icons
   Wand2,
   Rocket,
@@ -92,10 +93,11 @@ import {
   }
   
   // Update the SubItem interface
+  // Update the SubItem interface to make icon required
   interface SubItem {
     title: string;
     url: string;
-    icon?: React.ComponentType<IconProps>;
+    icon: React.ComponentType<IconProps>; // Remove optional '?' as all items have icons
   }
   
   // Update the NavItem interface
@@ -315,7 +317,13 @@ import {
     ],
   };
 
-  export function AppSidebar({ children }: { children: React.ReactNode }) {
+  // Add this with other interfaces
+  interface AppSidebarProps {
+    children: React.ReactNode;
+  }
+  
+  // Update the component definition
+  export function AppSidebar({ children }: AppSidebarProps) {
     const [activeTeam, setActiveTeam] = React.useState(data.teams[0]);
   
     return (
@@ -400,19 +408,18 @@ import {
                         </SidebarMenuButton>
                       </CollapsibleTrigger>
                       <CollapsibleContent>
-                      <SidebarMenuSub>
-  {item.items?.map((subItem: SubItem) => (
-    <SidebarMenuSubItem key={subItem.title}>
-      <SidebarMenuSubButton asChild>
-        <a href={subItem.url} className="flex items-center gap-2">
-          {subItem.icon && React.createElement(subItem.icon, { className: "h-4 w-4" })}
-          <span>{subItem.title}</span>
-        </a>
-      </SidebarMenuSubButton>
-    </SidebarMenuSubItem>
-  ))}
-</SidebarMenuSub>
-
+                        <SidebarMenuSub>
+                          {item.items?.map((subItem: SubItem) => (
+                            <SidebarMenuSubItem key={subItem.title}>
+                              <SidebarMenuSubButton asChild>
+                                <a href={subItem.url} className="flex items-center gap-2">
+                                  {React.createElement(subItem.icon, { className: "h-4 w-4" })}
+                                  <span>{subItem.title}</span>
+                                </a>
+                              </SidebarMenuSubButton>
+                            </SidebarMenuSubItem>
+                          ))}
+                        </SidebarMenuSub>
                       </CollapsibleContent>
                     </SidebarMenuItem>
                   </Collapsible>
@@ -509,7 +516,7 @@ import {
                             alt={data.user.name}
                           />
                           <AvatarFallback className="rounded-lg">
-                            CN
+                            <User className="h-4 w-4" />
                           </AvatarFallback>
                         </Avatar>
                         <div className="grid flex-1 text-left text-sm leading-tight">
