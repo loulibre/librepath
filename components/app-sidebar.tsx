@@ -30,7 +30,18 @@ import {
   Star,
   FolderUp,
   FolderSync,
-  Grid3x3
+  Grid3x3,
+  // Add these new icons
+  Wand2,
+  Rocket,
+  Atom,
+  BookMarked,
+  Compass,
+  FileCode,
+  History,
+  Gauge,
+  Users,
+  Database
 } from "lucide-react";
 
   import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -69,21 +80,53 @@ import {
 
   // This is sample data.
   // Add these interfaces at the top of the file, after the imports
+  interface IconProps {
+    className?: string;
+  }
+  
+  // Update the Team interface
+  interface Team {
+    name: string;
+    logo: React.ComponentType<IconProps>;
+    plan: string;
+  }
+  
+  // Update the SubItem interface
   interface SubItem {
     title: string;
     url: string;
-    icon?: React.ElementType;
+    icon?: React.ComponentType<IconProps>;
   }
-
+  
+  // Update the NavItem interface
   interface NavItem {
     title: string;
     url: string;
-    icon: React.ElementType;
+    icon: React.ComponentType<IconProps>;
     isActive?: boolean;
     items?: SubItem[];
   }
-
-  const data = {
+  
+  // Update the Project interface
+  interface Project {
+    name: string;
+    url: string;
+    icon: React.ComponentType<IconProps>;
+  }
+  
+  interface AppData {
+    user: {
+      name: string;
+      email: string;
+      avatar: string;
+    };
+    teams: Team[];
+    navMain: NavItem[];
+    projects: Project[];
+  }
+  
+  // Update the data constant with type annotation
+  const data: AppData = {
     user: {
       name: "LouLibre",
       email: "m@librepath.com",
@@ -184,14 +227,17 @@ import {
           {
             title: "Genesis",
             url: "#",
+            icon: Wand2,
           },
           {
             title: "Explorer",
             url: "#",
+            icon: Rocket,
           },
           {
             title: "Quantum",
             url: "#",
+            icon: Atom,
           },
         ],
       },
@@ -203,18 +249,22 @@ import {
           {
             title: "Introduction",
             url: "#",
+            icon: BookMarked,
           },
           {
             title: "Get Started",
             url: "#",
+            icon: Compass,
           },
           {
             title: "Tutorials",
             url: "#",
+            icon: FileCode,
           },
           {
             title: "Changelog",
             url: "#",
+            icon: History,
           },
         ],
       },
@@ -226,18 +276,22 @@ import {
           {
             title: "General",
             url: "#",
+            icon: Gauge,
           },
           {
             title: "Team",
             url: "#",
+            icon: Users,
           },
           {
             title: "Billing",
             url: "#",
+            icon: CreditCard,
           },
           {
             title: "Limits",
             url: "#",
+            icon: Database,
           },
         ],
       },
@@ -347,7 +401,7 @@ import {
                       </CollapsibleTrigger>
                       <CollapsibleContent>
                       <SidebarMenuSub>
-  {item.items?.map((subItem) => (
+  {item.items?.map((subItem: SubItem) => (
     <SidebarMenuSubItem key={subItem.title}>
       <SidebarMenuSubButton asChild>
         <a href={subItem.url} className="flex items-center gap-2">
@@ -368,7 +422,7 @@ import {
             <SidebarGroup className="group-data-[collapsible=icon]:hidden">
               <SidebarGroupLabel>Projects</SidebarGroupLabel>
               <SidebarMenu>
-                {data.projects.map((item) => (
+                {data.projects.map((item: Project) => (
                   <SidebarMenuItem key={item.name}>
                     <SidebarMenuButton asChild>
                       <a href={item.url}>
