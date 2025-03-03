@@ -262,7 +262,7 @@ import {
                       className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                     >
                       <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                        <activeTeam.logo className="size-4" />
+                        {React.createElement(activeTeam.logo, { className: "size-4" })}
                       </div>
                       <div className="grid flex-1 text-left text-sm leading-tight">
                         <span className="truncate font-semibold">
@@ -336,7 +336,7 @@ import {
                             <SidebarMenuSubItem key={subItem.title}>
                               <SidebarMenuSubButton asChild>
                                 <a href={subItem.url} className="flex items-center gap-2">
-                                  {subItem.icon && <subItem.icon className="h-4 w-4" />} {/* Render the icon */}
+                                  { "icon" in subItem && subItem.icon ? <subItem.icon className="h-4 w-4" /> : null }
                                   <span>{subItem.title}</span>
                                 </a>
                               </SidebarMenuSubButton>
